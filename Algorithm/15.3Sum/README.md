@@ -132,6 +132,54 @@ func threeSum(_ nums: [Int]) -> [[Int]] {
     }
 这个代码虽然最后通过了测试，但是耗时1828ms，只战胜了14.66%的 Swift 提交记录。所以代码优化的空间应该还是很大的，感觉应该还可以通过类似快排的方式进行优化。我未来还会针对这个代码修改，争取达到主流水准。
 
+# 后续
+
+后续做了16题后，想到类似的解法15题也能用，就也拿来试了下，果然，最后结果耗时是272ms，战胜了90.87%的Swift代码。
+
+```
+func threeSum(_ nums: [Int]) -> [[Int]] {
+    var numSet = Set<[Int]>()
+    
+    if nums.count < 3 {
+        return []
+    }
+    let nums = nums.sorted()
+    
+    for (index1, num1) in nums.enumerated() {
+    		//大于0的部分不需要处理，因为都大于0相加不可能小于0
+        if num1 > 0 {
+            break
+        }
+        if index1 > 0 && num1 == nums[index1 - 1] {
+            continue
+        }
+        
+        var index2 = index1 + 1
+        var index3 = nums.count - 1
+        
+        while index2 < index3 {
+            let num2 = nums[index2]
+            let num3 = nums[index3]
+            let sum = num1 + num2 + num3
+            
+            if sum == 0 {
+                numSet.insert([num1, num2, num3])
+                index2 += 1
+                index3 -= 1
+            } else if (sum > 0) {
+                index3 -= 1
+            } else {
+                index2 += 1
+            }
+        }
+    }
+    
+    return Array(numSet)
+}
+```
+
+
+
 ### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/15.3Sum/3Sum.swift)
 
 
