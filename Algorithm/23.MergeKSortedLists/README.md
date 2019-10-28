@@ -1,98 +1,66 @@
 # 题目
 
-## [合并K个排序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
+## [整数反转](https://leetcode-cn.com/problems/reverse-integer/)
 
-合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。
+给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。
 
-示例:
+**示例 1:**
 
 ```
-输入:
-[
-  1->4->5,
-  1->3->4,
-  2->6
-]
-输出: 1->1->2->3->4->4->5->6
+输入: 123
+输出: 321
 ```
+
+ **示例 2:**
+
+```
+输入: -123
+输出: -321
+```
+
+**示例 3:**
+
+```
+输入: 120
+输出: 21
+```
+
+**注意:**
+
+假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−2^31, 2^31 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。
 
 # 思路
 
-首先想到一个方法：
+首先想到的是先把数字转为字符串，然后直接反转数组的方法来做，但是想想这样虽然肯定能做出来，但是速度肯定是更慢的，因为涉及到了转换和存储。
 
-直接遍历数组，取到每一个链表第一个元素，然后对比找到最小的一个元素，把这个元素赋值给记录链表，然后将这个链表直接重置为这个元素的 next ，继续不断循环，直到数组为空。
+那么数学的操作要怎么反转呢？首先想到的是取余，一个整数与10取余，就可以得到它最小的数字了，然后我们再除以10，再取余，就可以得到第二小的数字了。以此类推，进行遍历，每次将之前的数乘以10，再加上余数，就可以得到反正的数字了。
 
-代码如下:
+下面就是代码：
 
-```Swift
-func mergeKLists(_ lists: [ListNode?]) -> ListNode? {
-    if lists.count == 0 {
-        return nil
+```
+func reverse(_ x: Int) -> Int {
+    var x = x
+    var res = 0
+    while x != 0 {
+        let n = x % 10
+        res = res * 10 + n
+        x = x / 10
     }
-    let rln = ListNode(0)
-
-    var lists = lists.filter{ $0 != nil}
-    var ln = rln
-    while lists.count > 0 {
-        var minLn = lists.first!
-        var index = 0
-        for (i, list) in lists.dropFirst().enumerated() {
-            if list!.val < minLn!.val {
-                minLn = list
-                index = i + 1
-            }
-        }
-        lists.remove(at: index)
-        if let next = minLn!.next {
-            lists.append(next)
-        }
-        minLn!.next = nil
-        ln.next = minLn
-        ln = ln.next!
-    }
-
-    return rln.next
+    return res
 }
 ```
 
-提交后失败，原因是超出时间限制，那么我们来看看这个代码的时间复杂度。k个链表的数组，总链表数为n，那么时间复杂度应该是 O(kn)，算是比较高的。那么看看怎么优化。
+这个代码通过了执行，但是提交后报错。原来是还漏了一个条件，就是题目最后要求的数值溢出问题。只要在最后的结果中，加入对数字范围的判断就可以了。
 
-想到既然是需要排序，那么可以借助于数组，可以先遍历所有链表，讲链表的数字插入数组，然后排序数组，最后再遍历数组，就可以创建出一个有序的数组了。
-
-最后代码如下：
-
-```Swift
-func mergeKLists(_ lists: [ListNode?]) -> ListNode? {
-    let lists = lists.filter{ $0 != nil}
-    if lists.count == 0 {
-        return nil
-    } else if lists.count == 1 {
-        return lists.first as? ListNode
-    }
-    var array = [Int]()
-    for list in lists {
-        var ln = list
-        while ln != nil {
-            array.append(ln!.val)
-            ln = ln!.next
-        }
-    }
-    let rln = ListNode(0)
-    var ln = rln
-    for num in array.sorted() {
-        ln.next = ListNode(num)
-        ln = ln.next!
-    }
-    
-    return rln.next
+```
+if res > Int32.max || res < Int32.min {
+    return 0
 }
 ```
 
-提交后用时 104 ms ，战胜了 90.70 % 的 Swift 代码。
+提交后成功。用时 4 ms ，战胜了 98.44 % 的 Swift 代码。
 
-实际上这个方法我觉得应该算是有点作弊的性质了~因为用到了数组的排序，是 Swift 的框架自带的。时间复杂度为 O(n + 框架排序时间复杂度)。
-
-### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/23.MergeKSortedLists/MergeKSortedLists.swift)
+### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/7.ReverseInteger/ReverseInteger.swift)
 
 
 
