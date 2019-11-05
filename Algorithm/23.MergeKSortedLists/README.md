@@ -60,7 +60,7 @@ if res > Int32.max || res < Int32.min {
 
 提交后成功。用时 4 ms ，战胜了 98.44 % 的 Swift 代码。
 
-### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/7.ReverseInteger/ReverseInteger.swift)
+### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/7.ReverseInteger/code.swift)
 
 
 

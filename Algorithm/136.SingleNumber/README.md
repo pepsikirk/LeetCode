@@ -62,7 +62,7 @@ func singleNumber(_ nums: [Int]) -> Int {
 
 提交后通过，耗时 100 ms ，战胜了 92.06% 的 Swift 提交记录
 
-### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/136.SingleNumber/SingleNumber.swift)
+### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/136.SingleNumber/code.swift)
 
 
 

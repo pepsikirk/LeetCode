@@ -105,7 +105,7 @@ func lengthOfLongestSubstring(_ s: String) -> Int {
 
 看着两次提交后的结果相差如此悬殊，这才是算法的力量呀！
 
-### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/3.LongestSubstringWithoutRepeatingCharacters/LongestSubstringWithoutRepeatingCharacters.swift)
+### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/3.LongestSubstringWithoutRepeatingCharacters/code.swift)
 
 
 

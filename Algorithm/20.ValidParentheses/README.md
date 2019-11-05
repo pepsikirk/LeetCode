@@ -76,7 +76,7 @@ func isValid(_ s: String) -> Bool {
 }
 ```
 
-### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/20.ValidParentheses/ValidParentheses.swift)
+### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/20.ValidParentheses/code.swift)
 
 
 

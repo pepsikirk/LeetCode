@@ -79,7 +79,7 @@ if ln1 == nil && ln2 == nil && addNum > 0 {
 }
 ```
 
-### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/2.AddTwoNumbers/AddTwoNumbers.swift)
+### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/2.AddTwoNumbers/code.swift)
 
 
 

@@ -113,7 +113,7 @@ func compare(tuple1: (Int, Int), tuple2: (Int, Int)) -> (Int, Int) {
 
 这个代码提交后的数据为：耗时 216 ms ，战胜了 84.11% 的 Swift 代码。
 
-### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/5.LongestPalindromicSubstring/LongestPalindromicSubstring.swift)
+### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/5.LongestPalindromicSubstring/code.swift)
 
 
 

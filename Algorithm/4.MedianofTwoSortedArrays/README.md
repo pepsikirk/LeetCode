@@ -99,7 +99,7 @@ func findMedianSortedArrays(_ nums1: [Int], _ nums2: [Int]) -> Double {
 
 后续再对进行优化
 
-### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/4.MedianofTwoSortedArrays/MedianofTwoSortedArrays.swift)
+### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/4.MedianofTwoSortedArrays/code.swift)
 
 
 

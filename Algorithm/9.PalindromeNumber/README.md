@@ -55,7 +55,7 @@ func isPalindrome(_ x: Int) -> Bool {
 
 提交后耗时 32ms ，战胜了98.77% 的 Swift 代码。
 
-### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/9.PalindromeNumber/PalindromeNumber.swift)
+### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/9.PalindromeNumber/code.swift)
 
 
 

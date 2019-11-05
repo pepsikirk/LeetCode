@@ -79,7 +79,7 @@ func majorityElement(_ nums: [Int]) -> Int {
 
 提交后通过，耗时 168 ms ，战胜了94.80% 的 Swift 提交记录。
 
-### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/169.MajorityElement/169.MajorityElement.swift)
+### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/169.MajorityElement/169.code.swift)
 
 
 

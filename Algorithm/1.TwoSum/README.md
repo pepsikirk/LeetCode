@@ -71,7 +71,7 @@ func twoSum2(_ nums: [Int], _ target: Int) -> [Int] {
 }
 ```
 
-### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/1.TwoSum/TwoSum.swift)
+### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/1.TwoSum/code.swift)
 
 
 

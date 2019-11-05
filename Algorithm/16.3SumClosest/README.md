@@ -85,7 +85,7 @@ func threeSumClosest(_ nums: [Int], _ target: Int) -> Int {
     return returnSum
 ```
 
-### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/16.3SumClosest/3SumClosest.swift)
+### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/16.3SumClosest/code.swift)
 
 
 

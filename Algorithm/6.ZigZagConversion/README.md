@@ -76,7 +76,7 @@ func convert(_ s: String, _ numRows: Int) -> String {
 
 成绩一般，但是也不是很差，我推测应该是有方法可以不是用数组缓存，直接插入的方法可以稍微快点，不过大家的时间复杂度都是 O(n) 。
 
-### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/6.ZigZagConversion/ZigZagConversion.swift)
+### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/6.ZigZagConversion/code.swift)
 
 
 

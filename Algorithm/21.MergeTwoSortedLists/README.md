@@ -50,7 +50,7 @@ func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
 
 运行结果用时16ms，战胜 97.12% Swift 提交。
 
-### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/206.ReverseLinkedList/ReverseLinkedList.swift)
+### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/206.ReverseLinkedList/code.swift)
 
 
 

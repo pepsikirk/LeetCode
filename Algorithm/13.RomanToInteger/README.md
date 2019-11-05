@@ -134,7 +134,7 @@ if strs.count == 0 {
 
 
 
-### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/14.LongestCommonPrefix/LongestCommonPrefix.swift)
+### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/14.LongestCommonPrefix/code.swift)
 
 
 
