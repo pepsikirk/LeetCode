@@ -13,6 +13,7 @@ public class ListNode {
 func sortList(_ head: ListNode?) -> ListNode? {
     var allCount = 0;
     var node = head;
+    
     while node != nil {
         node = node!.next;
         allCount += 1;
@@ -22,17 +23,18 @@ func sortList(_ head: ListNode?) -> ListNode? {
     res.next = head;
     
     var subCount = 1;
+    
     while subCount < allCount {
-        var curr = res.next;
-        var tail: ListNode? = res;
-        while let node = curr {
-            let ln1 = node;
-            let ln2 = cut(node, subCount);
-            curr = cut(ln2, subCount);
+        var cln = res.next;
+        var pln = res;
+        while cln != nil {
+            let ln1 = cln;
+            let ln2 = cut(cln, subCount);
+            cln = cut(ln2, subCount);
+            pln.next = mergeTwoLists(ln1, ln2);
             
-            tail?.next = mergeTwoLists(ln1, ln2);
-            while let next = tail?.next {
-                tail = next;
+            while pln.next != nil {
+                pln = pln.next!;
             }
         }
         subCount *= 2;
@@ -40,15 +42,22 @@ func sortList(_ head: ListNode?) -> ListNode? {
     return res.next;
 }
 
-private func cut(_ head: ListNode?, _ n: Int) -> ListNode? {
-    var head = head;
+func cut(_ head: ListNode?, _ n: Int) -> ListNode? {
+    guard var head = head else {
+        return nil
+    }
+    
     var count = 1;
     while count < n {
-        head = head?.next;
-        count += 1;
+        if let next = head.next {
+            head = next;
+            count += 1;
+        } else {
+            return nil
+        }
     }
-    let next = head?.next;
-    head?.next = nil;
+    let next = head.next;
+    head.next = nil;
     return next;
 }
 
