@@ -17,9 +17,7 @@
 
 # 思路
 
-
-
-
+先将字符串转换为数组后倒着遍历，判断存在空格即返回记录的长度即可。需要注意的是，可能不存在空格。
 
     func lengthOfLastWord(_ s: String) -> Int {
         let array = Array(s)
