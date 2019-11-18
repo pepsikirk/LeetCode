@@ -73,66 +73,33 @@ M             1000
 
 # 思路
 
-首先想到就是可以把字符串数组中的第一个字符串从数组中取出来，作为一个获取前缀的锚点。然后再通过遍历第一个字符串来获取前缀，再遍历字符串数组，判断获取的前缀。判断失败就直接返回已经得到的公共前缀。遍历完数组后，没有返回就可以把这个字符加入到公共前缀里。
+这题跟上一题思路类似，还是先把对应的数据列出，然后遍历字符串，首先取2个字符串，如果匹配就加上，然后继续遍历，不匹配就取一个字符串对应的数字加上去。
+
+
 
 最后代码如下:
 
 ```
-func longestCommonPrefix(_ strs: [String]) -> String {
-    var commonPrefix = ""
+func romanToInt(_ s: String) -> Int {
+    let romansDict = ["M":1000, "CM":900, "D":500, "CD":400, "C":100, "XC":90, "L":50, "XL":40, "X":10, "IX":9, "V":5, "IV":4, "I":1]
+    var res = 0
+    var i = 0
+    while i < s.count {
+        let one = String(s[s.index(s.startIndex, offsetBy:i)])
 
-    var firstString = strs[0]
-    var strings = strs
-    strings.removeFirst()
-
-    for (i, char) in firstString.enumerated() {
-        let index = String.Index.init(encodedOffset: i)
-        let prefixString = firstString[...index]
-
-        for string in strings {
-            if !string.hasPrefix(prefixString) {
-                return commonPrefix
-            }
+        if i + 1 < s.count, let num = romansDict[one + String(s[s.index(s.startIndex, offsetBy:i + 1)])] {
+            res += num
+            i += 2
+        } else {
+            res += romansDict[one]!
+            i += 1
         }
-        commonPrefix.append(char)
     }
-
-    return commonPrefix
+    return res
 }
 ```
 
-结果执行出错，第二个用例就出问题了，错误信息为  `Fatal error: Index out of range` 
-
-看这错误提示很明显是数组越界错误，而代码里面只有 `var firstString = strs[0]` 这一句使用了数组取值，所以很显然，在函数最前面加上数组判断代码，如下，后通过了测试。
-
-代码:
-
-```
-if strs.count == 0 {
-    return ""
-}
-```
-
-虽然通过了测试，但是很奇怪的是，使用时间特别久，看了下超过了 300ms ，在所有代码的排名都是最后面的，这明显不正常。于是我还是要继续优化代码。
-
-再仔细看代码，创建新的前缀字符串时，我是使用字符串的 index 去取的，很可能是这一块耗时比较严重。要怎么才能不用 index 去取呢？很明显，我们已经有了 commonPrefix 直接在它的基础上加上 char 就可以得到最新要判断的前缀字符串了，并且遍历字符串也不再需要使用 enumerated() 方法。
-
-最后字符串数组循环代码如下：
-
-    for char in firstString {
-        var prefixString = commonPrefix
-        prefixString.append(char)
-    
-        for string in strings {
-            if !string.hasPrefix(prefixString) {
-                return commonPrefix
-            }
-        }
-        commonPrefix = prefixString
-    }
-这个代码提交后跑出来的数据非常好，16ms ，超过了100%的用户。
-
-
+提交后结果为，耗时 36 ms ，超过了 89.66 %的用户。
 
 ### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/14.LongestCommonPrefix/code.swift)
 

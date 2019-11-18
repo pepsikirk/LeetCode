@@ -2,38 +2,23 @@
 import Foundation
 
 func romanToInt(_ s: String) -> Int {
-    let dict = initDict()
-    let chars = [Character](s.reversed())
+    let romansDict = ["M":1000, "CM":900, "D":500, "CD":400, "C":100, "XC":90, "L":50, "XL":40, "X":10, "IX":9, "V":5, "IV":4, "I":1]
     var res = 0
-    
-    for i in 0..<chars.count {
-        guard let current = dict[String(chars[i])] else {
-            return res
-        }
-        if i > 0 && current < dict[String(chars[i - 1])]! {
-            res -= current
+    var i = 0
+    while i < s.count {
+        let one = String(s[s.index(s.startIndex, offsetBy:i)])
+        
+        if i + 1 < s.count, let num = romansDict[one + String(s[s.index(s.startIndex, offsetBy:i + 1)])] {
+            res += num
+            i += 2
         } else {
-            res += current
+            res += romansDict[one]!
+            i += 1
         }
     }
-    
     return res
 }
 
-private func initDict() -> [String: Int] {
-    var dict = [String: Int]()
-    
-    dict["I"] = 1
-    dict["V"] = 5
-    dict["X"] = 10
-    dict["L"] = 50
-    dict["C"] = 100
-    dict["D"] = 500
-    dict["M"] = 1000
-    
-    return dict
-}
-
-let res = romanToInt("IV")
+let res = romanToInt("MCMXCIV")
 
 print(res)
