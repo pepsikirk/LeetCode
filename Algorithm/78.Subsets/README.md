@@ -63,6 +63,27 @@ func dfs(nums: [Int], level: Int) {
 
 提交后通过，耗时 8 ms ，战胜了 100.00 % 的 Swift 提交记录
 
+## 下面再用迭代法来做一下这道题：
+
+遍历数组，将当前数字再创建数组插入结果数组，然后遍历第二次以后就再遍历结果数组，遍历到 r 为结果数组当前已经加入的数组，讲当前数字插入 r 再加入结果数组即可。
+
+代码如下：
+
+    func subsets(_ nums: [Int]) -> [[Int]] {
+        var result = [[Int]]()
+        for num in nums {
+            for r in result {
+                var r = r
+                r.append(num)
+                result.append(r)
+            }
+            result.append([num])
+        }
+        result.append([])
+        return result
+    }
+提交后通过，耗时 8 ms ，战胜了 100.00 % 的 Swift 提交记录
+
 ### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/78.Subsets/code.swift)
 
 

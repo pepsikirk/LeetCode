@@ -30,7 +30,7 @@
         }
         return res
     }
-提交后成功。用时 52 s ，战胜了 74.47 % 的 Swift 代码。
+提交后成功。用时 52 ms ，战胜了 74.47 % 的 Swift 代码。
 
 ### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/53.MaximumSubarray/code.swift)
 
