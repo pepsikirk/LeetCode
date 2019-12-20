@@ -12,7 +12,11 @@ public class TreeNode {
     }
 }
 
-func isSameTree(_ p: TreeNode?, _ q: TreeNode?) -> Bool {
+func isSymmetric(_ root: TreeNode?) -> Bool {
+    return dfs(root, root)
+}
+
+func dfs(_ p: TreeNode?, _ q: TreeNode?) -> Bool {
     guard let tn1 = p, let tn2 = q else {
         if p == nil && q == nil {
             return true
@@ -23,7 +27,7 @@ func isSameTree(_ p: TreeNode?, _ q: TreeNode?) -> Bool {
     if tn1.val != tn2.val {
         return false
     }
-    return isSameTree(tn1.left, tn2.left) && isSameTree(tn1.right, tn2.right)
+    return dfs(tn1.left, tn2.right) && dfs(tn1.right, tn2.left)
 }
 
 let node1 = TreeNode(1)
@@ -32,14 +36,6 @@ let node3 = TreeNode(3)
 node1.left = node2
 node1.right = node3
 
-let node11 = TreeNode(1)
-let node12 = TreeNode(2)
-let node21 = TreeNode(1)
-let node22 = TreeNode(2)
-node11.left = node12
-node21.right = node22
-
-
-let res = isSameTree(node11, node21)
+let res = isSymmetric(node1)
 print(res)
 

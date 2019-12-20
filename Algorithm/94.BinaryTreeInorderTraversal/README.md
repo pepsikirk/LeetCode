@@ -73,7 +73,7 @@ func inorderTraversal(_ root: TreeNode?) -> [Int] {
 }
 ```
 
-提交后通过，耗时 4 ms ，战胜了 100 % 的 Swift 提交记录。
+提交后通过，耗时 4 ms ，战胜了 97.70 % 的 Swift 提交记录。
 
 ### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/94.BinaryTreeInorderTraversal/code.swift)
 

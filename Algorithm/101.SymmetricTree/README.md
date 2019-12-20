@@ -27,7 +27,11 @@
 下面是代码：
 
 ```
-func isSameTree(_ p: TreeNode?, _ q: TreeNode?) -> Bool {
+func isSymmetric(_ root: TreeNode?) -> Bool {
+    return dfs(root, root)
+}
+
+func dfs(_ p: TreeNode?, _ q: TreeNode?) -> Bool {
     guard let tn1 = p, let tn2 = q else {
         if p == nil && q == nil {
             return true
@@ -38,7 +42,7 @@ func isSameTree(_ p: TreeNode?, _ q: TreeNode?) -> Bool {
     if tn1.val != tn2.val {
         return false
     }
-    return isSameTree(tn1.left, tn2.left) && isSameTree(tn1.right, tn2.right)
+    return dfs(tn1.left, tn2.right) && dfs(tn1.right, tn2.left)
 }
 ```
 
