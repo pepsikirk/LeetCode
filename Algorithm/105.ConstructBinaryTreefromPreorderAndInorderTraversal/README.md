@@ -24,7 +24,7 @@
 
 # 思路
 
-这道题首先需要分析前序遍历和中序遍历的特性。前序遍历的第一个元素一定是根节点，而后序遍历的根节点的左边就是这个根节点的左子树，右边就是这个根节点的右子树。根据这个原理，我们可以对数组进行切分，就可以得到左右节点的前序遍历和中序遍历数组。再进行递归即可。
+这道题首先需要分析前序遍历和中序遍历的特性。前序遍历的第一个元素一定是根节点，而中序遍历的根节点的左边就是这个根节点的左子树，右边就是这个根节点的右子树。根据这个原理，我们可以对数组进行切分，就可以得到左右节点的前序遍历和中序遍历数组。再进行递归即可。
 
 下面是代码：
 
@@ -110,7 +110,7 @@ func create(_ pStart: Int, _ pEnd: Int, _ iStart: Int, _ iEnd: Int) -> TreeNode?
 
 提交后通过，耗时 28 ms ，战胜了 97.92 % 的 Swift 提交记录。耗时又降低了一个数量级。
 
-### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/105.ConstructBinaryTreefromPreorderAndInorderTraversal/code.swift)
+### 最后完成的代码[链接](https://github.com/pepsikirk/LeetCode/blob/master/Algorithm/105.ConstructBinaryTreeFromPreorderAndInorderTraversal/code.swift)
 
 
 
